@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     namespace "ru.netology.nmedia"
@@ -60,7 +61,7 @@ dependencies {
     def lifecycle_version = "2.5.1"
     def mdc_version = "1.6.1"
     def nav_version = "2.5.2"
-    def room_version = "2.4.3"
+    def room_version = "2.6.0-alpha01"
     def firebase_version = "30.3.1"
     def glide_version = "4.15.1"
     def retrofit_version = "2.9.0"
@@ -98,6 +99,8 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutines_version"
     implementation "com.github.dhaval2404:imagepicker:$imagepicker_version"
     implementation "com.google.android.gms:play-services-base:$play_services_base_version"
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"

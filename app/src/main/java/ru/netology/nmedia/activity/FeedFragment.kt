@@ -10,22 +10,17 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import ru.netology.nmedia.R
 import ru.netology.nmedia.adapter.OnInteractionListener
 import ru.netology.nmedia.adapter.PostsAdapter
 import ru.netology.nmedia.databinding.FragmentFeedBinding
-import ru.netology.nmedia.di.DependencyContainer
 import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.viewmodel.PostViewModel
-import ru.netology.nmedia.viewmodel.ViewModelFactory
 
+@AndroidEntryPoint
 class FeedFragment : Fragment() {
-    private val dependencyContainer = DependencyContainer.getInstance()
-    private val viewModel: PostViewModel by activityViewModels(
-        factoryProducer = {
-            ViewModelFactory(dependencyContainer.repository, dependencyContainer.appAuth)
-        }
-    )
+    private val viewModel: PostViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
